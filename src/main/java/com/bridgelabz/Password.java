@@ -22,6 +22,6 @@ public class Password {
     public static void main(String[] args) {
 
         Password obj = new Password();
-        System.out.println(obj.password("madhukar@97"));
+        System.out.println(obj.password("kisalay@97"));
     }
 }

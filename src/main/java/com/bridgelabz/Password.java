@@ -14,7 +14,7 @@ public class Password {
      */
     public boolean password(String passcode) {
 
-        Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9 !@#$%^&*(){}'.,+-_]{8,}");  //
+        Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(){}'.,+_-])[a-zA-Z0-9 !@#$%^&*(){}'.,+_-]{8,}");  //
         Matcher matcher = pattern.matcher(passcode);
         return matcher.matches();
     }
@@ -22,6 +22,6 @@ public class Password {
     public static void main(String[] args) {
 
         Password obj = new Password();
-        System.out.println(obj.password("Kisalay@yg1j"));
+        System.out.println(obj.password("Kisalay@yg9j"));
     }
 }

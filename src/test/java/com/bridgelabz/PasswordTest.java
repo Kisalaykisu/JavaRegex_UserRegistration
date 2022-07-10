@@ -3,8 +3,8 @@ package com.bridgelabz;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Password{
 
+class PasswordTest {
     Password obj = new Password();
 
     @Test
@@ -14,17 +14,17 @@ public class Password{
 
     @Test
     public void sadFirstName2() {
-        Assertions.assertFalse(obj.isFirstName("Kisalay kisalay"));
+        Assertions.assertFalse(obj.isFirstName("kisalay Srivastav"));
     }
 
     @Test
     public void happyLastName() {
-        Assertions.assertTrue(obj.isLastName("kisalay"));
+        Assertions.assertTrue(obj.isLastName("Srivastav"));
     }
 
     @Test
     public void sadLastName() {
-        Assertions.assertFalse(obj.isLastName("kisalaY"));
+        Assertions.assertFalse(obj.isLastName("SrivastaV"));
     }
 
     @Test
@@ -46,4 +46,5 @@ public class Password{
     public void sadPassword() {
         Assertions.assertFalse(obj.password("^&^%$#$jdnkj8"));
     }
+
 }

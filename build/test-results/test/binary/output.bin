@@ -1,0 +1,13 @@
+LastName is valid 
+
+FirstName is valid 
+
+;A problem occurred: com.bridgelabz.InvalidEmailException: 
+@ Invalid Email.....enter a valid email - E.g. abc.xyz@bl.co.in 
+ Email has 3 mandatory parts 
+K (abc, bl & co) and 2 optional (xyz & in) with precise @ and . positions  
+
+PhoneNo is valid 
+
+Password is valid 
+

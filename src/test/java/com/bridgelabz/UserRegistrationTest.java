@@ -1,7 +1,7 @@
 package com.bridgelabz;
 
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class UserRegistrationTest {
 
@@ -19,7 +19,7 @@ public class UserRegistrationTest {
     @Test
     public void happyLastName() {
         try {
-            Assert.assertTrue(UserRegistration.checkLastName("Srivastav"));
+            Assert.assertTrue(UserRegistration.checkLastName("Shaktimaan"));
             System.out.println("LastName is valid \n");
         }
         catch (InvalidNameException e){

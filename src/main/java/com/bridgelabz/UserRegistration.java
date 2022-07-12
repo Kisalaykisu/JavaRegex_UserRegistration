@@ -73,7 +73,7 @@ public class UserRegistration {
 
     public static void main(String[] args) {
         try {
-            checkFirstName("Madhukar");
+            checkFirstName("Kisalay");
             System.out.println("First Name is valid");
         }
         catch (InvalidNameException e){
@@ -81,7 +81,7 @@ public class UserRegistration {
         }
 
         try {
-            checkEmail("madhukar..5959@gmail.com");
+            checkEmail("kisalay..7777@gmail.com");
             System.out.println("Email is valid");
         }
         catch (InvalidEmailException e){

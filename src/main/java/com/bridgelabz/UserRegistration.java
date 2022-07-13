@@ -1,91 +1,75 @@
 package com.bridgelabz;
 
+import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
-
     /**
-     * This method takes First Name which starts with Capital letter and has minimum of 3 characters and throws custom exception if not valid
+     * This method takes First Name which starts with Capital letter and has minimum of 3 characters
      *
-     * @param firstName is used for comparing with regex
+     * @param Firstname is used for comparing with regex
      */
-    static boolean checkFirstName(String firstName) throws InvalidNameException {
+    public boolean isFirstName(String Firstname) {
         Pattern pattern = Pattern.compile("^[A-Z][a-z]{2,}");
-        Matcher matcher = pattern.matcher(firstName);
-        if (!matcher.matches()){
-            throw new InvalidNameException("\n Invalid firstName.....firstName should start with a Cap and should have minimum 3 chars \n");
-        }else return true;
+        Matcher matcher = pattern.matcher(Firstname);
+        Predicate<Pattern> matcherPredicate = match -> match.matcher(Firstname).matches();
+        return matcherPredicate.test(pattern);
     }
 
     /**
-     * This method takes Last Name which starts with Capital letter and has minimum of 3 characters and throws custom exception if not valid
+     * This method takes Last Name which starts with Capital letter and has minimum of 3 characters
      *
-     * @param lastName is used for comparing with regex
+     * @param Lastname is used for comparing with regex
      */
-    public static boolean checkLastName(String lastName) throws InvalidNameException {
+    public boolean isLastName(String Lastname) {
         Pattern pattern = Pattern.compile("^[A-Z][a-z]{2,}");
-        Matcher matcher = pattern.matcher(lastName);
-        if (!matcher.matches()){
-            throw new InvalidNameException("\n Invalid LastName.....LastName should start with a Cap and should have minimum 3 chars \n");
-        }else return true;
+        Matcher matcher = pattern.matcher(Lastname);
+        Predicate<Pattern> matcherPredicate = match -> match.matcher(Lastname).matches();
+        return matcherPredicate.test(pattern);
     }
 
     /**
-     * This method checks if the entered number is valid or not and throws custom exception if not valid
+     * This method checks if the entered number is valid or not
      *
      * @param Number takes in the parameter as String representation of number
      * @return it returns a boolean value true if the number is valid
      */
-    public static boolean checkNumber(String Number) throws InvalidPhoneNumberException {
+    public boolean isNumber(String Number) {
         Pattern pattern = Pattern.compile("^[0-9]{2}[ ][1-9][0-9]{9}$");
         Matcher matcher = pattern.matcher(Number);
-        if (!matcher.matches()){
-            throw new InvalidPhoneNumberException("\n Invalid PhoneNo.....PhoneNo should start with country code followed by space and 10 digit number \n");
-        }else return true;
+        Predicate<Pattern> matcherPredicate = match -> match.matcher(Number).matches();
+        return matcherPredicate.test(pattern);
     }
 
     /**
-     * Method to check if the password is valid or not and throws custom exception if not valid
+     * Method to check if the password is valid or not
      *
      * @param passcode takes in the passcode string as a parameter
      * @return returns boolean true if the password matches the requirement
      */
-    public static boolean checkPassword(String passcode) throws InvalidPasswordException {
-        Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(){}'.,+_-])[a-zA-Z0-9 !@#$%^&*(){}'.,+_-]{8,}");
+    public boolean isPassword(String passcode) {
+
+        Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(){}'.,+_-])[a-zA-Z0-9 !@#$%^&*(){}'.,+_-]{8,}");  //
         Matcher matcher = pattern.matcher(passcode);
-        if (!matcher.matches()){
-            throw new InvalidPasswordException("\n Invalid Password.....Password should Contain min 8 chars with at least: 1 capital letter, 1 numeric and exactly 1 special character  \n");
-        }else return true;
+        Predicate<Pattern> matcherPredicate = match -> match.matcher(passcode).matches();
+        return matcherPredicate.test(pattern);
     }
 
-    public static boolean checkEmail(String email) throws InvalidEmailException {
-        Pattern pattern = Pattern.compile("^(?!.*@.*@)[a-z+_-]+(.[a-z0-9])*@[a-z0-9]+(.[a-z])*.[a-z]{2,}$");
-        Matcher matcher = pattern.matcher(email);
-        if (!matcher.matches()){
-            throw new InvalidEmailException("\n Invalid Email.....enter a valid email - E.g. abc.xyz@bl.co.in \n Email has 3 mandatory parts \n" +
-                    " (abc, bl & co) and 2 optional (xyz & in) with precise @ and . positions  \n");
-        }else return true;
+    public boolean isEmail(String email) {
+        String regex = "^(?!.*@.*@)[a-z+_-]+(.[a-z0-9])*@[a-z0-9]+(.[a-z])*.[a-z]{2,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Predicate<Pattern> matcherPredicate = match -> match.matcher(email).matches();
+        return matcherPredicate.test(pattern);
     }
-
-
-
 
     public static void main(String[] args) {
-        try {
-            checkFirstName("Kisalay");
-            System.out.println("First Name is valid");
-        }
-        catch (InvalidNameException e){
-            System.out.println("A problem occurred: " + e);
-        }
 
-        try {
-            checkEmail("kisalay..7777@gmail.com");
-            System.out.println("Email is valid");
-        }
-        catch (InvalidEmailException e){
-            System.out.println("A problem occurred: " +e);
-        }
+        UserRegistration obj = new UserRegistration();
+        System.out.println(obj.isFirstName("Kisalay"));
+        System.out.println(obj.isLastName("Srivastav"));
+        System.out.println(obj.isNumber("91 9346546112"));
+        System.out.println(obj.isPassword("Kisalay@yg9j"));
+        System.out.println(obj.isEmail("kisalay..5864@gmail.com"));
     }
 }

@@ -5,65 +5,45 @@ import org.junit.jupiter.api.Test;
 
 public class UserRegistrationTest {
 
+    UserRegistration obj = new UserRegistration();
+
     @Test
     public void happyFirstName() {
-        try {
-            Assert.assertTrue(UserRegistration.checkFirstName("Kisalay"));
-            System.out.println("FirstName is valid \n");
-        }
-        catch (InvalidNameException e){
-            System.out.println("A problem occurred: " + e);
-        }
+        Assert.assertTrue(obj.isFirstName("Kisalay"));
+    }
+
+    @Test
+    public void sadFirstName2() {
+        Assert.assertFalse(obj.isFirstName("kisalay Srivastav"));
     }
 
     @Test
     public void happyLastName() {
-        try {
-            Assert.assertTrue(UserRegistration.checkLastName("Shaktimaan"));
-            System.out.println("LastName is valid \n");
-        }
-        catch (InvalidNameException e){
-            System.out.println("A problem occurred: " + e);
-        }
+        Assert.assertTrue(obj.isLastName("Srivastav"));
+    }
+
+    @Test
+    public void sadLastName() {
+        Assert.assertFalse(obj.isLastName("srivastaV"));
     }
 
     @Test
     public void happyNumber() {
-        try {
-            Assert.assertTrue(UserRegistration.checkNumber("91 9341561823"));
-            System.out.println("PhoneNo is valid \n");
-        }
-        catch (InvalidPhoneNumberException e){
-            System.out.println("A problem occurred: " + e);
-        }
+        Assert.assertTrue(obj.isNumber("91 9341561823"));
     }
 
+    @Test
+    public void sadNumber() {
+        Assert.assertFalse(obj.isNumber("91 9341561823551"));
+    }
 
     @Test
     public void happyPassword() {
-        try {
-            Assert.assertTrue(UserRegistration.checkPassword("^&^%$#$jdnHkj8"));
-            System.out.println("Password is valid \n");
-        }
-        catch (InvalidPasswordException e){
-            System.out.println("A problem occurred: " + e);
-        }
+        Assert.assertTrue(obj.isPassword("^&^%$#$jdnHkj8"));
     }
 
     @Test
-    public void happyEmail() {
-        try {
-            Assert.assertTrue(UserRegistration.checkEmail("kisalay..7777@gmail.com"));
-            System.out.println("Email is valid \n");
-        }
-        catch (InvalidEmailException e){
-            System.out.println("A problem occurred: " + e);
-        }
-    }
-
-    @Test
-    public void happyEmail2() throws InvalidEmailException {
-        Assert.assertTrue(UserRegistration.checkEmail("kisalay..7777@gmail.com"));
-        System.out.println("Email is valid \n");
+    public void sadPassword() {
+        Assert.assertFalse(obj.isPassword("^&^%$#$jdnkj8"));
     }
 }

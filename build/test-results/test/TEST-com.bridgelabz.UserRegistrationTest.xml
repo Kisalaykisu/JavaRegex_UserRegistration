@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgelabz.UserRegistrationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-07-12T12:13:44" hostname="KISALAY" time="0.015">
+<testsuite name="com.bridgelabz.UserRegistrationTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-07-13T11:13:47" hostname="KISALAY" time="0.022">
   <properties/>
-  <testcase name="happyFirstName()" classname="com.bridgelabz.UserRegistrationTest" time="0.015"/>
-  <system-out><![CDATA[FirstName is valid 
-
-]]></system-out>
+  <testcase name="happyLastName()" classname="com.bridgelabz.UserRegistrationTest" time="0.014"/>
+  <testcase name="happyFirstName()" classname="com.bridgelabz.UserRegistrationTest" time="0.001"/>
+  <testcase name="sadFirstName2()" classname="com.bridgelabz.UserRegistrationTest" time="0.0"/>
+  <testcase name="sadPassword()" classname="com.bridgelabz.UserRegistrationTest" time="0.001"/>
+  <testcase name="happyNumber()" classname="com.bridgelabz.UserRegistrationTest" time="0.001"/>
+  <testcase name="sadLastName()" classname="com.bridgelabz.UserRegistrationTest" time="0.001"/>
+  <testcase name="sadNumber()" classname="com.bridgelabz.UserRegistrationTest" time="0.001"/>
+  <testcase name="happyPassword()" classname="com.bridgelabz.UserRegistrationTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
